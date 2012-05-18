@@ -1,0 +1,6 @@
+16-May-2012 22:02:16 Lab3 main
+WARNING: 			"WARNING" is a message level indicating a potential problem.
+16-May-2012 22:02:16 Lab3 main
+INFO: 			"INFO" is a message level for informational messages.
+16-May-2012 22:02:16 Lab3 main
+SEVERE: 			"SEVERE" is a message level indicating a serious failure.
