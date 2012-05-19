@@ -1,4 +1,3 @@
-package Testing;
 
 import java.awt.Toolkit;
 

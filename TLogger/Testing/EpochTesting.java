@@ -1,4 +1,3 @@
-package Testing;
 
 public class EpochTesting {
   public static void  main(String arg[]) throws InterruptedException {
