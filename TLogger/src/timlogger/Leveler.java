@@ -1,4 +1,4 @@
-package tLogger;
+package timlogger;
 
 public class Leveler{
 	
