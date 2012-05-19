@@ -1,0 +1,91 @@
+Example of output:
+
+ 
+Bug  ID  							232  
+Message  							Problem  creating  variable    
+Time  (Epoch  Format)  				10000232334  
+Class  								Main.java  
+Package  							Com.kylegoslin  
+ 
+WARNING type:
+
+Warning  Message  
+Error  Message  
+Severe  Error  Message  
+ 
+------------------------------------------------------------------------------
+
+Description  
+ 
+Design   an   error   logging   /   warning   logging   tool   that   can   be   used   with   any  
+application.   The   programmer   who   uses   your   logger   must   be   able   to   use   the  
+logger  easily  to  log  a  wide  variety  of  bugs.  Once  bugs  are  logged,  they  will  be  
+saved  to  a  text  file  with  the  following  information:  
+ 
+------------------------------------------------------------------------------------------------- 
+Specification  
+ 
+• A   unique   ID   number   needs   to   be   attached   to   each   bug   report.   The   ID  
+number  must  be  unique  e.g.  the  same  number  can  never  be  entered  twice.  
+(Use system time with seconds, DateTesting)
+ 
+
+• The  time  since  epoch  must  be  computed  and  added  to  your  bug  report  
+when  a  new  bug  is  being  logged.  
+(Done, EpochTesting)
+ 
+
+• Simple  strings  must  be  added  to  allow  the  class  name  and  the  package  
+name  to  be  added  to  the  bug  report.  
+ (InfoGetter)
+ 
+ 
+• You  must  create  at  least  6  different  methods  in  your  logger,  that  can  be  
+used   to   create   different   types   of   error   messages,   each   with   a   varying  
+amount  of  information.  
+(Main TLogger)
+
+ 
+• Your  logger  must  a  class  to  save  the  error  messages  to  a  text  file  once  
+they  have  been  added  to  the  logger.  
+(Writer)
+
+ 
+• Your  logger  must  include  at  least  two  different  format  outputs.  Example  
+outputs  include:  
+ 
+1.  All  the  bug  information.  
+2.  Only  a  summary  of  the  information.  
+(Formatter)
+
+
+ 
+• You   must   add   a   configuration   class   to   your   logger   that   reads   in  
+configuration  variables  outlining  where  the  errors  should  be  logged  to,  
+and   a   variable   outlining   what   the   format   is   currently   chosen   for   the  
+output.  
+(Conf)
+
+
+
+• An   output   class   should   be   included   that   when   called   will   output   the  
+errors  to  the  console  in  the  selected  format.  
+(TLoggerPrinter) 
+
+----------------------------------------------------------------------------------- 
+ 
+ 
+Javadoc    
+ 
+Javadoc   compliant   comments   must   be   used   throughout   your   logger.   Javadoc  
+must  then  be  used  to  create  a  comprehensive  API  documentation  of  your  project  
+once  your  project  has  been  completed.  
+ 
+ 
+Developer  Guide  
+ 
+One  of  the  most  important  elements  of  a  project  is  the  documentation  that  has  
+been  added  to  the  project.      
+As  part  of  this  assignment  you  must  create  a  simple  developer  guide  that  will  
+outline  to  a  developer  everything  that  they  need  to  know  to  implement  and  use  
+your  logger  as  part  of  their  project. 
