@@ -1,5 +1,10 @@
 package timlogger;
-
+/**TimLogger.java
+ * Purpose: log error message
+ * @author Shiguang.Tim.Hao
+ * @version 1.0 21st-05-2012
+ * 
+ */
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 import java.util.Calendar;
@@ -11,14 +16,34 @@ import java.awt.Toolkit;
 
 
 class TimLogger {
-	
+
+	/**contains Conf, hold the configuration file of logger
+	 * PrintWriter, for write to file
+	 * 
+	 * 
+	 * And A list of the options:
+	 * Leveller: 			0 - ERROR
+	 * 						1 - WARNING
+	 * 						2 - SEVERE
+	 * 
+	 * Formatter:			0 - SUMMARY
+	 * 						1 - DETAIL
+	 * 
+	 * Handler:				0 - Console and file
+	 * 						1 - file
+	 * 						2 - Console			
+	 * 
+	 */
 	private Conf c;
 	private PrintWriter pw = null; 
 	
+	/**Constructor, set new logger with default configuration
+	 */
 	protected TimLogger(){
 		this.c = new Conf();
 	}
 	
+	/**Play a system sound to start*/
 	protected void startSound() throws InterruptedException{
 		 
         Toolkit.getDefaultToolkit().beep();
@@ -27,6 +52,7 @@ class TimLogger {
         Thread.sleep(4000);
 	}
 	
+	/**Play a system sound to finish*/
 	protected void finishSound() throws InterruptedException{
 		 
         Toolkit.getDefaultToolkit().beep();
@@ -35,10 +61,8 @@ class TimLogger {
         Thread.sleep(300);
         Toolkit.getDefaultToolkit().beep();
 	}
-
-	protected String getLeveler(){
-		return this.c.l.getLeveler();
-	}
+	
+	/**@return String, Get the system time which with millisecond, to use as unique ID*/
 	protected String getID(){
 		Date date = Calendar.getInstance().getTime();
 		DateFormat formatter = new SimpleDateFormat("yy-MM-dd-HH-mm-ss-SSS");
@@ -46,19 +70,32 @@ class TimLogger {
 		return id;
 	}
 	
+	/**@return String, Get the Epoch time*/
 	protected String getEpoch() {
-		long epoch = System.currentTimeMillis();
+		long epoch = System.currentTimeMillis()/1000;
 		String s = String.valueOf(epoch);
 		return s;
   	}
 
+	/**@param s String, the class name of the error message
+	 * @return String, get the class name of the error message*/
 	protected String setClassName(String s){
 		return this.c.className = s;
 	}
+	
+	/**@param s String, the package name of the error message
+	 * @return String, get the package name of the error message*/
 	protected String setPackageName(String s){
 		return this.c.packageName = s;
 	}
 
+	/**Write error log with custom setting
+	 * 
+	 * @param a Integer, the level of error message
+	 * @param b Integer, the option of how to format the message
+	 * @param c Integer, the option of how to handle the message
+	 * @param s String, the message of error
+	 */
 	protected void writeLog(int a, int b, int c, String s){	
 		this.c.l.setLevel(a);
 		this.c.f.setFormat(b);
@@ -76,10 +113,14 @@ class TimLogger {
 		}
 	}
 	
+	/**Write error log to the console, with message s
+	 * 
+	 * @param s String, The message of error
+	 */
 	protected void writeToConsole(String s){
 		System.out.println("-------------------------------------------------------------------");
 		System.out.println("BugID\t\t\t"+getID());
-		System.out.println(this.c.l.getLeveler()+"\t\t\t"+s);
+		System.out.println(this.c.l.getLeveller()+"\t\t\t"+s);
 		if (this.c.f.option == 1){
 			System.out.println("Time\t\t\t"+getEpoch());
 	    	System.out.println("Class\t\t\t"+this.c.className);
@@ -88,6 +129,11 @@ class TimLogger {
 		System.out.println("-------------------------------------------------------------------");
 	}
 	
+	/**Write error log to the text file, which has been setup in configuration file, 
+	 * with message s, by using FileWriter.
+	 * 
+	 * @param s String, the message of error
+	 */
 	protected void writeToFile(String s){
 			
 			try {
@@ -97,7 +143,7 @@ class TimLogger {
 
 				pw.println("-------------------------------------------------------------------");
 				pw.println("BugID\t\t\t"+getID());
-				pw.println(this.c.l.getLeveler()+"\t\t\t"+s);
+				pw.println(this.c.l.getLeveller()+"\t\t\t"+s);
 				if (this.c.f.option == 1){
 					pw.println("Time\t\t\t"+getEpoch());
 			    	pw.println("Class\t\t\t"+this.c.className);
@@ -108,7 +154,7 @@ class TimLogger {
 				pw.close();
 			}
 			catch (IOException e) {
-				e.printStackTrace();
+				this.writeLog(2, 1, 2,"Can Not Write To The File!");
 			}
 			finally {  
 				//Double check, and close the PrintWriter AGAIN.
