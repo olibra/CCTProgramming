@@ -5,7 +5,7 @@ public class Conf{
 	protected Leveler l;
 	protected Handler h;
 	protected Formatter f;
-	private final String fileName = "Tim Logger.txt";
+	protected String fileName = "Tim Logger.txt";
 	
 	protected Conf(){
 		this.l = new Leveler();
@@ -15,7 +15,8 @@ public class Conf{
 	
 	protected Conf(int a, int b, int c){
 		this.l = new Leveler(a);
-		
+		this.h = new Handler(b);
+		this.f = new Formatter(c);
 	}
 	
 }

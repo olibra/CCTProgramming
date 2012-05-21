@@ -1,7 +1,7 @@
 package timlogger;
 
 public class Formatter {
-	private String format;
+	protected String format;
 	
 	protected Formatter(){
 		this.setFormat(0); 
@@ -10,10 +10,11 @@ public class Formatter {
 		this.setFormat(i);
 	}
 	
-	private void setFormat(int i){
+	
+	protected void setFormat(int i){
 		switch (i){
-			case 1:	format = "ALL";
 			case 0:	format = "SUMMARY";
+			case 1:	format = "ALL";
 		}
 	}
 

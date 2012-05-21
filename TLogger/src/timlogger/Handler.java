@@ -7,7 +7,6 @@ import java.io.PrintWriter;
 public class Handler {
 
 	private int option;
-	private String fileName;
 	private PrintWriter pw = null; 
 	
 	protected Handler(){
@@ -18,17 +17,20 @@ public class Handler {
 		this.option =i;
 	}
 	
-	protected void write(){
+	protected void write(String s){
 		if (this.option == 2){
 			this.writeToConsole();
 		}
 		if (this.option == 1){
-			this.writeToFile();
+			this.writeToFile(s);
 		}
 		if (this.option == 0){
 			this.writeToConsole();
-			this.writeToFile();
+			this.writeToFile(s);
 		}
+	}
+	protected void setHandler(int i){
+		this.option = i;
 	}
 	
 	protected void writeToConsole(){
@@ -37,10 +39,10 @@ public class Handler {
 		System.out.println("Message from Handler....");
 	}
 	
-	protected void writeToFile(){
+	protected void writeToFile(String s){
 			
 			try {
-				FileWriter logFile = new FileWriter(fileName, true);
+				FileWriter logFile = new FileWriter(s, true);
 				//If the file already exists, start writing at the end of it.
 				pw = new PrintWriter(logFile);
 				pw.print("line 1\t\t");

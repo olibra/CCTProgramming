@@ -7,8 +7,12 @@ public class TimLogger {
 		this.c = new Conf();
 	}
 	
+	protected TimLogger(int a, int b, int c){
+		this.c = new Conf(a,b,c);
+	}
+	
 	protected void writeLog(){
-		c.h.writeToConsole();
+		c.h.write(c.fileName);
 	}
 	
 }
