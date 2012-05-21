@@ -1,5 +1,5 @@
 package timlogger;
 
-public class Filer {
+public class Handler {
 
 }

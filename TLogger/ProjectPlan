@@ -39,16 +39,26 @@ when  a  new  bug  is  being  logged.
 name  to  be  added  to  the  bug  report.  
  (InfoGetter)
  
- 
+ -------------------------------------------------------------------------------------------
 • You  must  create  at  least  6  different  methods  in  your  logger,  that  can  be  
 used   to   create   different   types   of   error   messages,   each   with   a   varying  
 amount  of  information.  
 (Main TimLogger)
 
- 
+6 methods:
+
+setLevel()
+setHandler()
+setFormatter()
+getMethod() - Tested - GetCurrentMethodNameTest
+
+getEpoch() - Tested
+getID() - using system time with seconds - Tested
+
+---------------------------------------------------------------------------------------- 
 • Your  logger  must  a  class  to  save  the  error  messages  to  a  text  file  once  
 they  have  been  added  to  the  logger.  
-(Filer)
+(Handler - Filer)
 
  
 • Your  logger  must  include  at  least  two  different  format  outputs.  Example  
@@ -70,7 +80,7 @@ output.
 
 • An   output   class   should   be   included   that   when   called   will   output   the  
 errors  to  the  console  in  the  selected  format.  
-(TimLoggerPrinter) 
+(Handler - TimLoggerPrinter) 
 
 ----------------------------------------------------------------------------------- 
  
