@@ -55,7 +55,7 @@ public class TimLoggerTester {
 		try {
 			t.finishSound();
 		} catch (Exception e) {
-			t.writeLog(0, 1, 1, "Finish Sound is not working!!!");
+			t.writeLog("Finish Sound is not working!!!");
 		}
 		
 		

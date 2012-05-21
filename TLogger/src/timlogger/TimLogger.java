@@ -65,7 +65,7 @@ class TimLogger {
         Toolkit.getDefaultToolkit().beep();
 	}
 	
-	/**@return id String, Get the system time which with millisecond, to use as unique ID*/
+	/**Get the system time which with millisecond, to use as unique ID*/
 	protected String getID(){
 		Date date = Calendar.getInstance().getTime();
 		DateFormat formatter = new SimpleDateFormat("yy-MM-dd-HH-mm-ss-SSS");
@@ -73,7 +73,7 @@ class TimLogger {
 		return id;
 	}
 	
-	/**@return s String, Get the Epoch time*/
+	/**Get the Epoch time*/
 	protected String getEpoch() {
 		long epoch = System.currentTimeMillis()/1000;
 		String s = String.valueOf(epoch);
@@ -114,6 +114,17 @@ class TimLogger {
 			this.writeToConsole(s);
 			this.writeToFile(s);
 		}
+	}
+	
+	/**By default, write error level message with summary to console only
+	 * 
+	 * @param s String, the message
+	 */
+	protected void writeLog(String s){	
+		this.c.l.setLevel(0);
+		this.c.f.setFormat(0);
+		this.c.h.setHandler(2);
+		this.writeToConsole(s);
 	}
 	
 	/**Write error log to the console, with message s
