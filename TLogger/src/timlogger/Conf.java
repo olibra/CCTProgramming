@@ -5,18 +5,16 @@ public class Conf{
 	protected Leveler l;
 	protected Handler h;
 	protected Formatter f;
-	protected String fileName = "Tim Logger.txt";
+	protected String logFile = "Tim Logger.txt";
+	
+	protected String className;
+	protected String packageName;
 	
 	protected Conf(){
-		this.l = new Leveler();
-		this.h = new Handler();
-		this.f = new Formatter();
+		this.l = new Leveler(0);
+		this.f = new Formatter(0);
+		this.h = new Handler(2);
+		this.className = "Unknown";
+		this.packageName = "Unknown";
 	}
-	
-	protected Conf(int a, int b, int c){
-		this.l = new Leveler(a);
-		this.h = new Handler(b);
-		this.f = new Formatter(c);
-	}
-	
 }

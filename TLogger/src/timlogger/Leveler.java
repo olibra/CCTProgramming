@@ -2,23 +2,18 @@ package timlogger;
 
 public class Leveler{
 	
-	private String level;
+	protected String level;
 	
-	protected Leveler(){
-		this.setLevel(2); 
-	}
 	protected Leveler(int i){
 		this.setLevel(i);
 	}
 	
 	protected void setLevel(int i){
-		switch (i){
-			case 0:	level = "WEVERE";
-			case 1:	level = "WARNING";
-			case 2: level = "ERROR";
-		}
+		if (i == 0) this.level = "ERROR";
+		if (i == 1) this.level = "WARNING";
+		if (i == 2) this.level = "SEVERE";
 	}
 	protected String getLeveler(){
-		return level;
+		return this.level;
 	}
 }
