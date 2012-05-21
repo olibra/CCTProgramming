@@ -1,4 +1,14 @@
 package timlogger;
+
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.awt.Toolkit;
+
 /**TimLogger.java
  * Purpose: log error message
  * @author Shiguang.Tim.Hao
@@ -7,7 +17,7 @@ package timlogger;
  * 
  * <p>And A list of the options:
  * <p>
- * Leveller:
+ * <p>Leveller:
  * <p>			 			0 - ERROR
  * <p>						1 - WARNING
  * <p>						2 - SEVERE
@@ -22,36 +32,12 @@ package timlogger;
  * <p>						2 - Console			
  *   
  */
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
-import java.util.Calendar;
-import java.util.Date;
-import java.io.FileWriter;
-import java.io.IOException;
-import java.io.PrintWriter;
-import java.awt.Toolkit;
-
-
 class TimLogger {
 
-	/**contains Conf, hold the configuration file of logger
-	 * PrintWriter, for write to file
-	 * 
-	 * 
-	 * And A list of the options:
-	 * Leveller: 			0 - ERROR
-	 * 						1 - WARNING
-	 * 						2 - SEVERE
-	 * 
-	 * Formatter:			0 - SUMMARY
-	 * 						1 - DETAIL
-	 * 
-	 * Handler:				0 - Console and file
-	 * 						1 - file
-	 * 						2 - Console			
-	 * 
-	 */
+	/**Conf, hold the configuration file of logger*/	
 	private Conf c;
+	
+	/** PrintWriter, for write to file*/
 	private PrintWriter pw = null; 
 	
 	/**Constructor, set new logger with default configuration
@@ -79,7 +65,7 @@ class TimLogger {
         Toolkit.getDefaultToolkit().beep();
 	}
 	
-	/**@return String, Get the system time which with millisecond, to use as unique ID*/
+	/**@return id String, Get the system time which with millisecond, to use as unique ID*/
 	protected String getID(){
 		Date date = Calendar.getInstance().getTime();
 		DateFormat formatter = new SimpleDateFormat("yy-MM-dd-HH-mm-ss-SSS");
@@ -87,7 +73,7 @@ class TimLogger {
 		return id;
 	}
 	
-	/**@return String, Get the Epoch time*/
+	/**@return s String, Get the Epoch time*/
 	protected String getEpoch() {
 		long epoch = System.currentTimeMillis()/1000;
 		String s = String.valueOf(epoch);
@@ -95,13 +81,13 @@ class TimLogger {
   	}
 
 	/**@param s String, the class name of the error message
-	 * @return String, get the class name of the error message*/
+	 * @return this.c.className String, get the class name of the error message*/
 	protected String setClassName(String s){
 		return this.c.className = s;
 	}
 	
 	/**@param s String, the package name of the error message
-	 * @return String, get the package name of the error message*/
+	 * @return this.c.packageName String, get the package name of the error message*/
 	protected String setPackageName(String s){
 		return this.c.packageName = s;
 	}
