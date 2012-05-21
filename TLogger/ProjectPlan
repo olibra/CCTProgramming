@@ -37,7 +37,7 @@ when  a  new  bug  is  being  logged.
 
 • Simple  strings  must  be  added  to  allow  the  class  name  and  the  package  
 name  to  be  added  to  the  bug  report.  
- (InfoGetter)
+ (use getMethodName())
  
  -------------------------------------------------------------------------------------------
 • You  must  create  at  least  6  different  methods  in  your  logger,  that  can  be  
@@ -50,7 +50,7 @@ amount  of  information.
 setLevel()
 setHandler()
 setFormatter()
-getMethod() - Tested - GetCurrentMethodNameTest
+getMethodName() - Tested - GetCurrentMethodNameTest
 
 getEpoch() - Tested
 getID() - using system time with seconds - Tested
