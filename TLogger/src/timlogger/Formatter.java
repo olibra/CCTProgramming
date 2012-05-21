@@ -3,10 +3,10 @@ package timlogger;
 public class Formatter {
 	private String format;
 	
-	private Formatter(){
+	protected Formatter(){
 		this.setFormat(0); 
 	}
-	private Formatter(int i){
+	protected Formatter(int i){
 		this.setFormat(i);
 	}
 	
