@@ -1,6 +1,6 @@
 package timlogger;
 
-public class Leveler{
+class Leveler{
 	
 	protected String level;
 	

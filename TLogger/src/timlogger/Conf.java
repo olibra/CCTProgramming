@@ -1,6 +1,6 @@
 package timlogger;
 
-public class Conf{
+class Conf{
 	
 	protected Leveler l;
 	protected Handler h;

@@ -1,6 +1,6 @@
 package timlogger;
 
-public class Formatter {
+class Formatter {
 	
 	protected int option;
 	

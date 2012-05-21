@@ -1,6 +1,6 @@
 package timlogger;
 
-public class Handler {
+class Handler {
 
 	protected int option;
 	
