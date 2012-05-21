@@ -9,17 +9,21 @@ package timlogger;
 class Conf{
 	/**Contains Leveller, Handler, and Formatter
 	 * 
-	 * And A list of the options:
-	 * Leveller: 			0 - ERROR
-	 * 						1 - WARNING
-	 * 						2 - SEVERE
-	 * 
-	 * Formatter:			0 - SUMMARY
-	 * 						1 - DETAIL
-	 * 
-	 * Handler:				0 - Console and file
-	 * 						1 - file
-	 * 						2 - Console			
+	 * <p>And A list of the options:
+	 * <p>
+	 * Leveller:
+	 * <p>			 			0 - ERROR
+	 * <p>						1 - WARNING
+	 * <p>						2 - SEVERE
+	 * <p>
+	 * <p>Formatter:
+	 * <p>						0 - SUMMARY
+	 * <p>						1 - DETAIL
+	 * <p>
+	 * <p>Handler:
+	 * <p>						0 - Console and file
+	 * <p>						1 - file
+	 * <p>						2 - Console			
 	 * 
 	 */
 	protected Leveller l;
